@@ -4,17 +4,7 @@ import ViewToggleComponent from "../../ViewToggle/ViewToggle";
 import FilterComponent from "../../Filter/Filter";
 import styles from "./ActionBar.module.scss";
 
-interface ActionBarProps {
-  setInput: (value: string) => void;
-  setViewState: React.Dispatch<React.SetStateAction<string>>;
-  viewState: string;
-  productLines: string[];
-  selectedLines: Set<string>;
-  onFilterChange: (lineName: string, isChecked: boolean) => void;
-  toggleFilterDropdown: () => void;
-  filterDropdownOpen: boolean;
-  closeFilterDropdown: () => void;
-}
+
 
 export const ActionBar: React.FC<ActionBarProps> = ({
   setInput,

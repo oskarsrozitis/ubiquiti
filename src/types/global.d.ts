@@ -12,7 +12,7 @@ interface Button {
 
 interface ViewToggleComponentProps {
   currentView: string;
-  onToggleView: (view: string) => void;
+  onToggleView: React.Dispatch<React.SetStateAction<"table" | "list">>;
 }
 
 interface SearchComponentProps {
@@ -32,6 +32,18 @@ interface InputProps {
   style?: React.CSSProperties;
 }
 
+interface ActionBarProps {
+  setInput: (value: string) => void;
+  setViewState: React.Dispatch<React.SetStateAction<"table" | "list">>;
+  viewState: "table" | "list";
+  productLines: string[];
+  selectedLines: Set<string>;
+  onFilterChange: (lineName: string, isChecked: boolean) => void;
+  toggleFilterDropdown: () => void;
+  filterDropdownOpen: boolean;
+  closeFilterDropdown: () => void;
+}
+
 type Device = {
   id: string;
   product: {
@@ -48,6 +60,9 @@ type Device = {
 
 interface DeviceTableProps {
   devices: Device[];
+  line?: {
+    name: string;
+  };
 }
 
 interface FilterComponentProps {

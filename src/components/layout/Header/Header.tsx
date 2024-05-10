@@ -3,15 +3,6 @@ import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
-  // Preload SVGs using JavaScript
-  const preloadImage = (src) => {
-    const img = new Image();
-    img.src = src;
-  };
-
-  preloadImage("/Ubiquiti_logo.svg");
-  preloadImage("/Ubiquiti_logo-hover.svg");
-  preloadImage("/Ubiquiti_logo-active.svg");
 
   return (
     <>

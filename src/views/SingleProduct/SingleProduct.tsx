@@ -95,7 +95,7 @@ const SingleProductView: React.FC = () => {
                 <div>{product.power.capacity} Watts</div>
               </div>
             )}
-            {(product.ports?.standard?.length > 0 ||
+            {/* {(product.ports?.standard?.length > 0 ||
               product.ports?.plus?.length > 0) && (
               <div className="flex justify-between border-b py-2">
                 <div>Ports</div>
@@ -111,7 +111,7 @@ const SingleProductView: React.FC = () => {
                   )}
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

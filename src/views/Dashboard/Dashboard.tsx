@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
         setViewState={setViewState}
         viewState={viewState}
         productLines={Array.from(
-          new Set(devices.map((device) => device.line.name))
+          new Set(devices.map(device => device.line?.name).filter(name => name != null))
         )}
         selectedLines={selectedLines}
         onFilterChange={handleFilterChange}

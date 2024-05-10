@@ -5,6 +5,14 @@ import ListFillIcon from "../icons/listFill.svg?react";
 import GridIcon from "../icons/grid.svg?react";
 import GridFillIcon from "../icons/gridFill.svg?react";
 
+
+type ViewType = "table" | "list";
+
+interface ViewToggleComponentProps {
+  currentView: string;
+  onToggleView: (view: ViewType) => void;
+}
+
 const ViewToggleComponent: React.FC<ViewToggleComponentProps> = ({
   currentView,
   onToggleView,
@@ -12,14 +20,18 @@ const ViewToggleComponent: React.FC<ViewToggleComponentProps> = ({
   // Effect to load the initial view type from local storage
   useEffect(() => {
     const storedView = localStorage.getItem("viewType");
-    if (storedView) {
-      onToggleView(storedView);
+    if (storedView === "table" || storedView === "list") {
+      onToggleView(storedView as ViewType);  // Casting since we checked the value
     }
   }, [onToggleView]);
 
   const handleToggleView = (view: string) => {
-    localStorage.setItem("viewType", view); // Save the current view type to local storage
-    onToggleView(view);
+    if (view === "table" || view === "list") {
+      localStorage.setItem("viewType", view);
+      onToggleView(view as ViewType);  // Casting since we checked the value
+    } else {
+      console.error("Invalid view type provided:", view);
+    }
   };
 
   return (

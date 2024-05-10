@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFetchDevices = (url: string) => {
-  const [devices, setDevices] = useState([]);
+  const [devices, setDevices] = useState<Device[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

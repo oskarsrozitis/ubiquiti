@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Button from "../common/Button/Button";
 import FilterDropdown from "../FilterDropdown/FilterDropdown";
 
@@ -10,7 +10,6 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
   toggleFilterDropdown,
   closeFilterDropdown,
 }) => {
-  const filterButtonRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
