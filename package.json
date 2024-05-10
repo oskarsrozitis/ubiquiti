@@ -1,8 +1,9 @@
 {
-  "name": "ubiquiti-hw",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ubiquiti-or-hw",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

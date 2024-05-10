@@ -8,13 +8,14 @@ export default defineConfig({
     svgr(),   // Transforms SVGs into React components
   ],
   build: {
-    outDir: 'dist',  // Default is 'dist', ensure this is what you intend
-    // Ensure paths are set correctly
+    rollupOptions: {
+      output: {
+        // This ensures that all asset paths in the output HTML are relative
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      }
+    }
   },
-  server: {
-    // Serve from the root directory
-    // This will start the local server and serve your application at http://localhost:3000
-    // This will help bypass CORS restrictions
-    base: '/',
-  },
+  base: './',
 });
