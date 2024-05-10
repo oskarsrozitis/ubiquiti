@@ -20,6 +20,13 @@ Ensure you have Node.js (version 16.x or later) and npm installed on your machin
    ```bash
    npm install
 
+4. Run command:
+  ```bash
+  npm run dev
+
+5. Visit Dev site
+  ```bash
+  Open in browser URI http://localhost:5173/
 
 ## Project structure
 
@@ -37,13 +44,3 @@ Project Structure
         services/: Service functions to handle external API calls.
     public/: Public static files like the main HTML.
     assets/: Static resource files like images and global styles.
-
-
-## Available Scripts
-
-1. Runs the app in development mode with hot reload:
-npm run dev
-
-2. Builds the app for production
-npm run build
-
