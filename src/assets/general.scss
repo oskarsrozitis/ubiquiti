@@ -7,10 +7,10 @@
     @apply max-w-md;
   }
   .container-lg {
-    @apply mx-auto max-w-4xl;
+    @apply mx-auto max-w-6xl;
   }
   .container-xl {
-    @apply container max-w-6xl;
+    @apply mx-auto max-w-7xl;
   }
 }
 
