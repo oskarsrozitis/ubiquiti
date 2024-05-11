@@ -7,6 +7,16 @@ export default defineConfig({
     react(), // Enables features needed for React
     svgr(), // Transforms SVGs into React components
   ],
+  resolve: {
+    alias: {
+      "@": "/src", 
+      "@components": "/src/components",
+      "@common": "/src/components/Common", 
+      "@icons": "/src/components/Common/Icons",
+      "@hooks": "/src/hooks",
+      "@utils": "/src/utils", 
+    },
+  },
   build: {
     rollupOptions: {
       output: {

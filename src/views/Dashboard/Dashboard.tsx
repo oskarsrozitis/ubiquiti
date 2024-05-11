@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from "react";
-import { ActionBar } from "../../components/layout/ActionNav/ActionBar";
-import { Header } from "../../components/layout/Header/Header";
-import DeviceTable from "../../components/DeviceTable/DeviceTable";
-import DeviceList from "../../components/DeviceList/DeviceList";
-import Loading from "../../components/Loading/Loading.tsx";
-import useFetchDevices from "../../hooks/useFetchDevices";
-import useFilteredDevices from "../../hooks/useFilteredDevices";
+import { ActionBar } from "@components/Layout/ActionNav/index.tsx";
+import { Header } from "@components/Layout/Header/index.tsx";
+import DeviceTable from "@components/Features/Devices/DeviceTable/index.tsx";
+import DeviceList from "@components/Features/Devices/DeviceList/index.tsx";
+import Loading from "@components/Common/Loading/index.tsx";
+import useFetchDevices from "@hooks/useFetchDevices";
+import useFilteredDevices from "@hooks/useFilteredDevices";
 
 const Dashboard: React.FC = () => {
   const [input, setInput] = useState(localStorage.getItem("searchQuery") || "");
@@ -17,19 +17,23 @@ const Dashboard: React.FC = () => {
   const { devices, loading, error } = useFetchDevices(apiUrl);
   const filteredDevices = useFilteredDevices(devices, input, selectedLines);
 
-  const productLines = useMemo(() => Array.from(
-    new Set(devices.map(device => device.line?.name).filter(Boolean))
-  ), [devices]);
+  const productLines = useMemo(
+    () =>
+      Array.from(
+        new Set(devices.map((device) => device.line?.name).filter(Boolean))
+      ),
+    [devices]
+  );
 
   const handleFilterChange = (lineName: string, isChecked: boolean) => {
-    setSelectedLines(prevLines => {
+    setSelectedLines((prevLines) => {
       const newLines = new Set(prevLines);
       isChecked ? newLines.add(lineName) : newLines.delete(lineName);
       return newLines;
     });
   };
 
-  const toggleFilterDropdown = () => setFilterDropdownOpen(prev => !prev);
+  const toggleFilterDropdown = () => setFilterDropdownOpen((prev) => !prev);
   const closeFilterDropdown = () => setFilterDropdownOpen(false);
 
   if (loading) return <Loading />;
@@ -58,13 +62,14 @@ const Dashboard: React.FC = () => {
             <DeviceList devices={filteredDevices} />
           )
         ) : (
-          <div className="flex flex-col items-center gap-3 w-full">
+          <div className="flex flex-col gap-3 lg:w-4/12">
             <p className="text-2xl">No devices found.</p>
             <p>
-              Consider using alternative search queries such as model, serial number, or other identifiers.
+              Consider using alternative search queries such as model, serial
+              number, or other identifiers.
             </p>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded w-fit"
               onClick={() => {
                 setInput("");
                 localStorage.removeItem("searchQuery");

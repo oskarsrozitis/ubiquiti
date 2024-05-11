@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import SearchComponent from "../../Search/Search";
-import ViewToggleComponent from "../../ViewToggle/ViewToggle";
-import FilterComponent from "../../Filter/Filter";
+import SearchComponent from "@common/Search";
+import ViewToggleComponent from "@common/ViewModeSwitch";
+import FilterComponent from "@common/Filter";
 import styles from "./ActionBar.module.scss";
 
 export const ActionBar: React.FC<ActionBarProps> = ({

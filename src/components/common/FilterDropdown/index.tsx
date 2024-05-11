@@ -1,7 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 import React from "react";
 import styles from "./FilterDropdown.module.scss";
-import CloseIcon from "../icons/close.svg?react";
+import CloseIcon from "@icons/close.svg?react";
 
 const FilterDropdown: React.FC<FilterDropdownProps> = ({
   productLines,

@@ -1,7 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ChevLeft from "../../icons/chevLeft.svg?react";
+import ChevLeft from "@icons/chevLeft.svg?react";
 
 const SingleProductNav: React.FC<SingleProductNavProps> = ({ title }) => {
   const navigate = useNavigate();

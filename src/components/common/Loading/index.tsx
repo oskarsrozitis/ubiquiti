@@ -1,5 +1,5 @@
 import React from "react";
-import LoadingIcon from "../../components/icons/loading.svg?react";
+import LoadingIcon from "@icons/loading.svg?react";
 
 const Loading: React.FC = () => {
   return (

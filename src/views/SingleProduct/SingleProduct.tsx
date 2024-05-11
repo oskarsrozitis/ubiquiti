@@ -1,9 +1,9 @@
 /// <reference types="vite-plugin-svgr/client" />
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Header } from "../../components/layout/Header/Header";
-import SingleProductNav from "../../components/layout/SingleProductNav/SingleProductNav";
-import Loading from "../../components/Loading/Loading";
+import { Header } from "@components/Layout/Header";
+import SingleProductNav from "@components/Layout/SingleProductNav";
+import Loading from "@common/Loading";
 
 const SingleProductView: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();

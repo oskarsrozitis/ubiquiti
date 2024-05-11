@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Button from "../common/Button/Button";
-import ListIcon from "../icons/list.svg?react";
-import ListFillIcon from "../icons/listFill.svg?react";
-import GridIcon from "../icons/grid.svg?react";
-import GridFillIcon from "../icons/gridFill.svg?react";
+import Button from "@common/Button/Button";
+import ListIcon from "@icons/list.svg?react";
+import ListFillIcon from "@icons/listFill.svg?react";
+import GridIcon from "@icons/grid.svg?react";
+import GridFillIcon from "@icons/gridFill.svg?react";
 
 type ViewType = "table" | "list";
 
