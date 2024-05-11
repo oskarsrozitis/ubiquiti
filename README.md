@@ -1,6 +1,6 @@
-# Ubiquiti-hw
+# Ubiquiti / Test Task / Oskars Rozitis
 
-This project is a web application built with React, TailwindCSS, and Vite, designed to manage and display device lists and related functionalities.
+This project is a web application built with React (TSdx zero config cli), TailwindCSS, and Vite, designed to manage and display device lists and related functionalities.
 
 ## Prerequisites
 
@@ -27,7 +27,6 @@ Ensure you have Node.js (version 16.x or later) and npm installed on your machin
 5. Visit Dev site
    ```bash
    Open in browser URI http://localhost:5173/
-
 
 ## Installation and running for production
 
