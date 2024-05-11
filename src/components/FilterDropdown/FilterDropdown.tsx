@@ -14,7 +14,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
       <div className={styles.filterDropdownHeader}>
         <div className="text-lg">Filter</div>
         <div onClick={onClose} style={{ cursor: "pointer" }}>
-          <CloseIcon className="w-4 h-4 hover:fill-gray-900 transition-all" />
+          <CloseIcon className="w-7 h-7 transition-all origin-top-center border-spacing-2 hover:text-color-900 p-2 " style={{ fill: 'currentColor' }} />
         </div>
       </div>
       <div className={styles.filterDropdownContent}>

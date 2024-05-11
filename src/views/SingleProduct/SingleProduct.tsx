@@ -61,6 +61,7 @@ const SingleProductView: React.FC = () => {
               className="mx-auto"
               src={product.imageUrl}
               alt={product.name}
+              loading="lazy"
             />
           </div>
           <div className="lg:w-1/2 flex flex-col text-gray-700">

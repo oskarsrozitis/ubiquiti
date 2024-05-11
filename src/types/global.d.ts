@@ -33,6 +33,7 @@ interface InputProps {
 }
 
 interface ActionBarProps {
+  input: string;
   setInput: (value: string) => void;
   setViewState: React.Dispatch<React.SetStateAction<"table" | "list">>;
   viewState: "table" | "list";

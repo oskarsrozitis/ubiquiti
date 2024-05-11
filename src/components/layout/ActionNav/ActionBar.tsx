@@ -7,6 +7,7 @@ import styles from "./ActionBar.module.scss";
 
 
 export const ActionBar: React.FC<ActionBarProps> = ({
+  input,
   setInput,
   setViewState,
   viewState,
@@ -22,11 +23,9 @@ export const ActionBar: React.FC<ActionBarProps> = ({
   );
 
   useEffect(() => {
-    // Check if there's a query on initial load and if so, apply necessary actions
-    if (inputValue) {
-      setInput(inputValue);
-    }
-  }, [inputValue, setInput]);
+    setInputValue(input);  // Set the local input value to the prop value whenever it changes
+  }, [input]);
+  
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value.toLowerCase();

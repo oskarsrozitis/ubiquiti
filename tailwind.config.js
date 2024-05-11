@@ -7,9 +7,6 @@ export default {
       fontFamily: {
         'lato': ['Lato', 'sans-serif'], // Add Lato with a fallback to sans-serif
       },
-      colors: {
-        'blue': '#006FFF',
-      },
       container: {
         center: true,
         padding: '2rem',  

@@ -5,7 +5,7 @@ const DeviceTable: React.FC<DeviceTableProps> = ({ devices }) => {
   const apiImageUrl = import.meta.env.VITE_IMAGE_API_URL;
 
   return (
-    <div className="w-full animate-fadeIn">
+    <div className="w-full animate-fadeIn mb-8">
       <div className="flex py-4 border-b -me-12">
         <div className="text-right w-1/3 text-gray-400 me-12">
           {devices.length} devices
@@ -30,6 +30,7 @@ const DeviceTable: React.FC<DeviceTableProps> = ({ devices }) => {
                 src={`${apiImageUrl}${device.icon.id}_64x64.png`}
                 alt={`Icon for ${device.product.name}`}
                 className="h-8 w-8 ms-auto"
+                loading="lazy"
               />
             </div>
             <div className="w-1/3 my-auto text-gray-600">

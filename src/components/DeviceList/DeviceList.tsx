@@ -20,6 +20,7 @@ const DeviceList: React.FC<{ devices: Device[] }> = ({ devices }) => (
               src={`${imageApiUrl}${device.icon.id}_128x128.png`}
               alt={`Icon for ${device.product.name}`}
               className="mx-auto"
+              loading="lazy"
             />
           </div>
           <div className="py-4 px-4">
