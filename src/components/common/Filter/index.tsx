@@ -10,7 +10,6 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
   toggleFilterDropdown,
   closeFilterDropdown,
 }) => {
-
   return (
     <>
       <Button onClick={toggleFilterDropdown}>Filter</Button>

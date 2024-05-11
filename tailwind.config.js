@@ -9,7 +9,7 @@ export default {
       },
       container: {
         center: true,
-        padding: '2rem',  
+        padding: '2rem',
         screens: {
           sm: '640px',
           md: '768px',

@@ -44,26 +44,9 @@ Ensure you have Node.js (version 16.x or later) and npm installed on your machin
    npm install
 
 4. Run command:
-  ```bash
-  npm run build
+   ```bash
+   npm run build
 
 5. Install Live Server or similar if running local
-  ```bash
-  https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-
-## Project structure
-
-Project Structure
-
-    src/: Source files for the application.
-        components/: Reusable React components.
-            DeviceList/: Component to display the list of devices.
-            Filter/: Components related to filtering device lists.
-        views/: React components that represent entire views/pages.
-        hooks/: Custom React hooks.
-        store/: State management using Redux or similar.
-        types/: TypeScript type definitions specific to the project.
-        utils/: Utility functions.
-        services/: Service functions to handle external API calls.
-    public/: Public static files like the main HTML.
-    assets/: Static resource files like images and global styles.
+   ```bash
+   https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
