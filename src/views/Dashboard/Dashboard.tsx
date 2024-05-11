@@ -1,9 +1,9 @@
-// src/views/Dashboard/Dashboard.tsx
 import React, { useState } from "react";
 import { ActionBar } from "../../components/layout/ActionNav/ActionBar";
 import { Header } from "../../components/layout/Header/Header";
 import DeviceTable from "../../components/DeviceTable/DeviceTable";
 import DeviceList from "../../components/DeviceList/DeviceList";
+import Loading from "../../components/Loading/Loading.tsx"
 import useFetchDevices from "../../hooks/useFetchDevices";
 import useFilteredDevices from "../../hooks/useFilteredDevices";
 
@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
   const [filterDropdownOpen, setFilterDropdownOpen] = useState<boolean>(false);
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const devices = useFetchDevices(`${apiUrl}`);
+  const { devices, loading, error } = useFetchDevices(`${apiUrl}`);
   const filteredDevices = useFilteredDevices(devices, input, selectedLines);
 
   const handleFilterChange = (lineName: string, isChecked: boolean) => {
@@ -26,6 +26,14 @@ const Dashboard: React.FC = () => {
   const toggleFilterDropdown = () => setFilterDropdownOpen(!filterDropdownOpen);
   const closeFilterDropdown = () => setFilterDropdownOpen(false);
 
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <p>Error loading devices: {error}</p>;
+  }
+
   return (
     <>
       <Header />
@@ -34,7 +42,11 @@ const Dashboard: React.FC = () => {
         setViewState={setViewState}
         viewState={viewState}
         productLines={Array.from(
-          new Set(devices.map(device => device.line?.name).filter(name => name != null))
+          new Set(
+            devices
+              .map((device) => device.line?.name)
+              .filter((name) => name != null)
+          )
         )}
         selectedLines={selectedLines}
         onFilterChange={handleFilterChange}

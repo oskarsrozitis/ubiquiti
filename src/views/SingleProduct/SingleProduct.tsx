@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "../../components/layout/Header/Header";
 import SingleProductNav from "../../components/layout/SingleProductNav/SingleProductNav";
-import LoadingIcon from "../../components/icons/loading.svg?react";
+import Loading from "../../components/Loading/Loading";
 
 const SingleProductView: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
@@ -47,14 +47,7 @@ const SingleProductView: React.FC = () => {
   }, [productId, apiUrl, apiImageUrl]);
 
   if (!product) {
-    return (
-      <div className="w-full h-screen flex justify-center text-center items-center">
-        <div role="status mx-auto block text-center animate-fadeIn">
-          <LoadingIcon />
-          <span className="sr-only">Loading...</span>Loading...
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
