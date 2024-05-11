@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { ActionBar } from "../../components/layout/ActionNav/ActionBar";
 import { Header } from "../../components/layout/Header/Header";
 import DeviceTable from "../../components/DeviceTable/DeviceTable";
@@ -8,31 +8,32 @@ import useFetchDevices from "../../hooks/useFetchDevices";
 import useFilteredDevices from "../../hooks/useFilteredDevices";
 
 const Dashboard: React.FC = () => {
-  const [input, setInput] = useState<string>(() => localStorage.getItem('searchQuery') || "");
+  const [input, setInput] = useState(localStorage.getItem("searchQuery") || "");
   const [viewState, setViewState] = useState<"list" | "table">("table");
   const [selectedLines, setSelectedLines] = useState<Set<string>>(new Set());
-  const [filterDropdownOpen, setFilterDropdownOpen] = useState<boolean>(false);
+  const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const { devices, loading, error } = useFetchDevices(`${apiUrl}`);
+  const { devices, loading, error } = useFetchDevices(apiUrl);
   const filteredDevices = useFilteredDevices(devices, input, selectedLines);
 
+  const productLines = useMemo(() => Array.from(
+    new Set(devices.map(device => device.line?.name).filter(Boolean))
+  ), [devices]);
+
   const handleFilterChange = (lineName: string, isChecked: boolean) => {
-    const updatedLines = new Set(selectedLines);
-    isChecked ? updatedLines.add(lineName) : updatedLines.delete(lineName);
-    setSelectedLines(updatedLines);
+    setSelectedLines(prevLines => {
+      const newLines = new Set(prevLines);
+      isChecked ? newLines.add(lineName) : newLines.delete(lineName);
+      return newLines;
+    });
   };
 
-  const toggleFilterDropdown = () => setFilterDropdownOpen(!filterDropdownOpen);
+  const toggleFilterDropdown = () => setFilterDropdownOpen(prev => !prev);
   const closeFilterDropdown = () => setFilterDropdownOpen(false);
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <p>Error loading devices: {error}</p>;
-  }
+  if (loading) return <Loading />;
+  if (error) return <p>Error loading devices: {error}</p>;
 
   return (
     <>
@@ -42,9 +43,7 @@ const Dashboard: React.FC = () => {
         setInput={setInput}
         setViewState={setViewState}
         viewState={viewState}
-        productLines={Array.from(
-          new Set(devices.map(device => device.line?.name).filter(name => name !== null))
-        )}
+        productLines={productLines}
         selectedLines={selectedLines}
         onFilterChange={handleFilterChange}
         toggleFilterDropdown={toggleFilterDropdown}
@@ -59,22 +58,18 @@ const Dashboard: React.FC = () => {
             <DeviceList devices={filteredDevices} />
           )
         ) : (
-          <div className="flex flex-col gap-3 w-6/12">
+          <div className="flex flex-col items-center gap-3 w-full">
             <p className="text-2xl">No devices found.</p>
             <p>
-              Please consider using alternative search queries such as model,
-              serial number, or other relevant identifiers to enhance the
-              accuracy of your search results.
+              Consider using alternative search queries such as model, serial number, or other identifiers.
             </p>
             <button
-              className="w-fit bg-[#006FFF] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={() => {
                 setInput("");
-                localStorage.removeItem("searchQuery")
-                setSelectedLines(new Set()); // also resetting the filter selections if needed
-                if (typeof window !== "undefined") {
-                  window.scrollTo(0, 0); // optionally reset scroll
-                }
+                localStorage.removeItem("searchQuery");
+                setSelectedLines(new Set());
+                window.scrollTo(0, 0);
               }}
             >
               Reset search

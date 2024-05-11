@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 
 const DeviceTable: React.FC<DeviceTableProps> = ({ devices }) => {
   const apiImageUrl = import.meta.env.VITE_IMAGE_API_URL;
+
+  const deviceRows = useMemo(() => (
+    devices.map(device => (
+      <Link
+        to={`/product/${device.id}`}
+        key={device.id}
+        className="flex items-start py-4 border-b border-gray-200 align-center hover:bg-gray-50 transition-all"
+      >
+        <div className="flex w-1/3 items-center me-12">
+          <img
+            src={`${apiImageUrl}${device.icon.id}_64x64.png`}
+            alt={`Icon for ${device.product.name}`}
+            className="h-8 w-8 ms-auto"
+            loading="lazy"
+          />
+        </div>
+        <div className="w-1/3 my-auto text-gray-600">
+          {device.product.abbrev}
+        </div>
+        <div className="w-1/3 my-auto text-gray-600">
+          {device.product.name}
+        </div>
+      </Link>
+    ))
+  ), [devices, apiImageUrl]);
 
   return (
     <div className="w-full animate-fadeIn mb-8">
@@ -18,29 +43,7 @@ const DeviceTable: React.FC<DeviceTableProps> = ({ devices }) => {
         </div>
       </div>
       <div className="flex flex-col">
-        {devices.map((device) => (
-          // Each device entry is wrapped in a Link for navigation
-          <Link
-            to={`/product/${device.id}`}
-            key={device.id}
-            className="flex items-start py-4 border-b border-gray-200 align-center hover:bg-gray-50 transition-all"
-          >
-            <div className="flex w-1/3 items-center me-12">
-              <img
-                src={`${apiImageUrl}${device.icon.id}_64x64.png`}
-                alt={`Icon for ${device.product.name}`}
-                className="h-8 w-8 ms-auto"
-                loading="lazy"
-              />
-            </div>
-            <div className="w-1/3 my-auto text-gray-600">
-              {device.product.abbrev}
-            </div>
-            <div className="w-1/3 my-auto text-gray-600">
-              {device.product.name}
-            </div>
-          </Link>
-        ))}
+        {deviceRows}
       </div>
     </div>
   );

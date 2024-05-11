@@ -4,8 +4,6 @@ import ViewToggleComponent from "../../ViewToggle/ViewToggle";
 import FilterComponent from "../../Filter/Filter";
 import styles from "./ActionBar.module.scss";
 
-
-
 export const ActionBar: React.FC<ActionBarProps> = ({
   input,
   setInput,
@@ -23,9 +21,8 @@ export const ActionBar: React.FC<ActionBarProps> = ({
   );
 
   useEffect(() => {
-    setInputValue(input);  // Set the local input value to the prop value whenever it changes
+    setInputValue(input); // Set the local input value to the prop value whenever it changes
   }, [input]);
-  
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value.toLowerCase();

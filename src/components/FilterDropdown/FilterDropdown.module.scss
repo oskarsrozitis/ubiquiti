@@ -13,9 +13,9 @@
   display: flex;
   justify-content: space-between;
   height: 57.5px;
-  @apply border-b px-8 py-5 items-center
+  @apply border-b px-8 py-5 items-center;
 }
 
 .filterDropdownContent {
-    @apply flex flex-col px-8 py-10
+  @apply flex flex-col px-8 py-10;
 }
