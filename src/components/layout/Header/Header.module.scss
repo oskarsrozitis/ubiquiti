@@ -20,9 +20,7 @@
 
 .pageTitle h1 {
   font-size: 1.4rem;
-  color: #565657;
-  padding-left: 1em;
-  font-weight: 300 !important;
+  @apply font-normal ps-8
 }
 
 .topInfo {

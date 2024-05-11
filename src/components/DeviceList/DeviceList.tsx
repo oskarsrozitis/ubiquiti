@@ -8,7 +8,7 @@ const DeviceList: React.FC<{ devices: Device[] }> = ({ devices }) => (
     <div className="w-full flex mb-4 -mt-4 text-gray-400">
       {devices.length} devices
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 animate-fadeIn">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-8 animate-fadeIn">
       {devices.map((device) => (
         <Link
           to={`/product/${device.id}`}

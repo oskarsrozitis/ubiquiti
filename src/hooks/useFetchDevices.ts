@@ -2,29 +2,35 @@ import { useState, useEffect } from "react";
 
 const useFetchDevices = (url: string) => {
   const [devices, setDevices] = useState<Device[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);  // State to track loading
-  const [error, setError] = useState<string | null>(null); // State to track errors
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Ensure loading is set at the start of the fetch
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        setDevices(data.devices); // Assuming the response has a "devices" property
-        setLoading(false); // Set loading to false after the data is loaded
+        setDevices(data.devices);
       } catch (err) {
-        setError(err.message); // Handle errors
-        setLoading(false); // Ensure loading is set to false on error
+        // Type check for error handling
+        if (err instanceof Error) {
+          setError(err.message); // Handle errors if it's an instance of Error
+        } else {
+          setError("An unexpected error occurred"); // Generic error for other cases
+        }
+      } finally {
+        setLoading(false); // Ensure loading is set to false after the data is loaded or in case of error
       }
     };
 
     fetchData();
   }, [url]);
 
-  return { devices, loading, error }; // Return devices, loading and error state
+  return { devices, loading, error };
 };
 
 export default useFetchDevices;

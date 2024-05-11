@@ -10,7 +10,7 @@
     @apply mx-auto max-w-6xl;
   }
   .container-xl {
-    @apply mx-auto max-w-7xl;
+    @apply mx-auto w-11/12;
   }
 }
 
@@ -18,7 +18,7 @@
   font-family: "Lato", sans-serif;
   line-height: 1.5;
   font-weight: 300;
-  font-size: 1em;
+  font-size: 14px;
 
   color: #828282;
   background-color: #fff;
