@@ -33,7 +33,6 @@ const SingleProductView: React.FC = () => {
               plus: foundProduct.unifi?.network?.ports?.plus,
             },
           });
-          console.log(foundProduct);
         } else {
           setProduct(null);
         }
