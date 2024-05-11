@@ -21,12 +21,12 @@ Ensure you have Node.js (version 16.x or later) and npm installed on your machin
    npm install
 
 4. Run command:
-  ```bash
-  npm run dev
+   ```bash
+   npm run dev
 
 5. Visit Dev site
-  ```bash
-  Open in browser URI http://localhost:5173/
+   ```bash
+   Open in browser URI http://localhost:5173/
 
 
 ## Installation and running for production
