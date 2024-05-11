@@ -37,13 +37,13 @@ const ViewToggleComponent: React.FC<ViewToggleComponentProps> = ({
   return (
     <>
       <Button
-        className={`p-1 ${currentView === "list" ? "bg-gray-200" : ""}`}
+        className={`p-1 ${currentView === "list" ? "bg-gray-100" : ""}`}
         onClick={() => handleToggleView("list")}
       >
         {currentView === "list" ? <GridFillIcon /> : <GridIcon />}
       </Button>
       <Button
-        className={`p-1 ${currentView === "table" ? "bg-gray-200" : ""}`}
+        className={`p-1 ${currentView === "table" ? "bg-gray-100" : ""}`}
         onClick={() => handleToggleView("table")}
       >
         {currentView === "table" ? <ListFillIcon /> : <ListIcon />}
