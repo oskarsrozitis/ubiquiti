@@ -1,14 +1,16 @@
 import React, { useState, useMemo } from "react";
-import { ActionBar } from "@components/Layout/ActionNav/index.tsx";
-import { Header } from "@components/Layout/Header/index.tsx";
-import DeviceTable from "@components/Features/Devices/DeviceTable/index.tsx";
-import DeviceList from "@components/Features/Devices/DeviceList/index.tsx";
-import Loading from "@components/Common/Loading/index.tsx";
+import { ActionBar } from "@components/Layout/ActionNav/index";
+import { Header } from "@components/Layout/Header/index";
+import DeviceTable from "@components/Features/Devices/DeviceTable/index";
+import DeviceList from "@components/Features/Devices/DeviceList/index";
+import Loading from "@common/Loading/index";
 import useFetchDevices from "@hooks/useFetchDevices";
 import useFilteredDevices from "@hooks/useFilteredDevices";
 
 const Dashboard: React.FC = () => {
-  const [input, setInput] = useState(localStorage.getItem("searchQuery") || "");
+  const [input, setInput] = useState(
+    sessionStorage.getItem("searchQuery") || ""
+  );
   const [viewState, setViewState] = useState<"list" | "table">("table");
   const [selectedLines, setSelectedLines] = useState<Set<string>>(new Set());
   const [filterDropdownOpen, setFilterDropdownOpen] = useState(false);
@@ -72,7 +74,7 @@ const Dashboard: React.FC = () => {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded w-fit"
               onClick={() => {
                 setInput("");
-                localStorage.removeItem("searchQuery");
+                sessionStorage.removeItem("searchQuery");
                 setSelectedLines(new Set());
                 window.scrollTo(0, 0);
               }}

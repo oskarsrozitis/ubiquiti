@@ -17,8 +17,8 @@ interface ViewToggleComponentProps {
 
 interface SearchComponentProps {
   value?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onClear: () => void; // Handler for clearing the input
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClear?: () => void; // Handler for clearing the input
 }
 
 interface InputProps {

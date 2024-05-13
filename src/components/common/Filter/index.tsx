@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@common/Button/Button";
+import Button from "@/components/Common/Button";
 import FilterDropdown from "@common/FilterDropdown";
 
 const FilterComponent: React.FC<FilterComponentProps> = ({

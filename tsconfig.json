@@ -6,32 +6,29 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": "./",
-
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@common/*": ["src/components/Common/*"],
       "@icons/*": ["src/components/Common/Icons/*"],
-      "@hooks/*":["src/hooks/*"],
+      "@common/Button/*": ["src/components/Button/*"],
+      "@common/Input/*": ["src/components/Input/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"]
     },
-
-    /* Bundler mode */
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": ["./node_modules/@types"],
+    "types": []
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*", "./jest-setup.ts"]
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Button from "@common/Button/Button";
+import Button from "@/components/Common/Button";
 import ListIcon from "@icons/list.svg?react";
 import ListFillIcon from "@icons/listFill.svg?react";
 import GridIcon from "@icons/grid.svg?react";
@@ -18,7 +18,7 @@ const ViewToggleComponent: React.FC<ViewToggleComponentProps> = ({
 }) => {
   // Effect to load the initial view type from local storage
   useEffect(() => {
-    const storedView = localStorage.getItem("viewType");
+    const storedView = sessionStorage.getItem("viewType");
     if (storedView === "table" || storedView === "list") {
       onToggleView(storedView as ViewType); // Casting since we checked the value
     }
@@ -26,7 +26,7 @@ const ViewToggleComponent: React.FC<ViewToggleComponentProps> = ({
 
   const handleToggleView = (view: string) => {
     if (view === "table" || view === "list") {
-      localStorage.setItem("viewType", view);
+      sessionStorage.setItem("viewType", view);
       onToggleView(view as ViewType); // Casting since we checked the value
     } else {
       console.error("Invalid view type provided:", view);

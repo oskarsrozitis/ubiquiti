@@ -17,7 +17,7 @@ export const ActionBar: React.FC<ActionBarProps> = ({
   closeFilterDropdown,
 }) => {
   const [inputValue, setInputValue] = useState(
-    () => localStorage.getItem("searchQuery") || ""
+    () => sessionStorage.getItem("searchQuery") || ""
   );
 
   useEffect(() => {
@@ -28,13 +28,13 @@ export const ActionBar: React.FC<ActionBarProps> = ({
     const newValue = event.target.value.toLowerCase();
     setInputValue(newValue);
     setInput(newValue);
-    localStorage.setItem("searchQuery", newValue);
+    sessionStorage.setItem("searchQuery", newValue);
   };
 
   const onClearHandler = () => {
     setInputValue("");
     setInput("");
-    localStorage.removeItem("searchQuery");
+    sessionStorage.removeItem("searchQuery");
   };
 
   return (

@@ -3,10 +3,23 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
+  "jest": {
+    "testEnvironment": "jest-environment-jsdom",
+    "moduleNameMapper": {
+      "^@root(.*)$": "<rootDir>/src$1",
+      "^@common(.*)$": "<rootDir>/src/components/Common$1",
+      "^@icons/(.*)\\.svg\\?react$": "<rootDir>/src/components/Common/Icons/$1.svg"
+    },
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+      "\\.(svg)$": "<rootDir>/__mocks__/svg.js"
+    }
+  },
   "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "test": "tsdx test",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -16,22 +29,32 @@
     "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
+    "@babel/preset-typescript": "^7.24.1",
     "@svgr/core": "^8.1.0",
     "@tailwindcss/forms": "^0.5.7",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.3.2",
+    "@types/testing-library__jest-dom": "^6.0.0",
+    "@types/testing-library__react": "^10.2.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.19",
+    "babel-plugin-module-resolver": "^5.0.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "jest": "^27.5.1",
+    "jest-config": "27.5.1",
+    "jest-environment-node": "27.5.1",
     "postcss": "^8.4.38",
     "sass": "^1.77.0",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.2.2",
+    "typescript": "^5.4.5",
     "vite": "^5.2.0",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }

@@ -1,7 +1,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 import React from "react";
-import Input from "@common/Input/Input";
-import SearchIcon from "@icons/search.svg?react";
+import Input from '@common/Input';
+import SearchIcon from "@icons/Search.svg?react";
 import CloseIcon from "@icons/close.svg?react";
 
 const SearchComponent: React.FC<SearchComponentProps> = ({
