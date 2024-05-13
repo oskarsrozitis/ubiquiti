@@ -4,7 +4,7 @@ This project is a web application built with React (TSdx zero config cli), Tailw
 
 ## Prerequisites
 
-Ensure you have Node.js (version 16.x or later) and npm installed on your machine to run this project. For build you might need Live Server for VS Code to run this app.
+Ensure you have Node.js (version 18.x or later) and npm installed on your machine to run this project. For build you might need Live Server for VS Code to run this app.
 
 ## Installation and running for development
 
