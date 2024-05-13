@@ -8,6 +8,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN yarn install --frozen-lockfile
 
+# Install serve globally
+RUN yarn global add serve
+
 # Copy your source files
 COPY . .
 
@@ -20,5 +23,5 @@ RUN yarn build
 # Expose the application port
 EXPOSE 3000
 
-# Command to run the application
-CMD ["yarn", "start"]
+# Command to serve your app using serve
+CMD ["serve", "-s", "dist", "-l", "3000"]
