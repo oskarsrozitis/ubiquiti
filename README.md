@@ -22,11 +22,11 @@ Ensure you have Node.js (version 18.x or later) and npm installed on your machin
 
 4. Run the Docker container:
    ```bash
-   docker run -p 5173:5173 -v ${PWD}:/app -e NODE_ENV=development ubiquiti-app-dev
+   docker run -p 3001:3001 ubiquiti
 
 5. Open your browser to:
    ```bash
-   http://localhost:5173/
+   http://localhost:3001/
 
 ## Installation and running for development
 
