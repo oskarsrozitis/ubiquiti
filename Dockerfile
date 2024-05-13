@@ -1,24 +1,24 @@
-# Use an official Node 18 runtime as a parent image
+# Use an official Node runtime as a parent image
 FROM node:18-alpine
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and yarn.lock (assuming you are now using yarn.lock)
-COPY package*.json ./
+# Install global dependencies
+RUN npm install -g typescript
 
-# Install dependencies
-# Using --frozen-lockfile to avoid updating the lock file
+# Copy package.json and install dependencies
+COPY package*.json ./
 RUN yarn install --frozen-lockfile
 
 # Copy the rest of your application code
 COPY . .
 
-# Build your app (assuming you have a build script in your package.json)
+# Attempt to compile and build the app
 RUN yarn build
 
-# Expose the port your app runs on
+# Expose the application on port 3000
 EXPOSE 3000
 
-# Command to run your app
+# Define the command to run your app
 CMD ["yarn", "start"]
