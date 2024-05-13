@@ -30,5 +30,5 @@
     "typeRoots": ["./node_modules/@types"],
     "types": []
   },
-  "include": ["src/**/*", "./jest-setup.ts"]
+  "include": ["./jest-setup.ts"]
 }
