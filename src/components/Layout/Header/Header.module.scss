@@ -1,0 +1,31 @@
+.topHeader {
+  background: #f6f6f8;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid #eeeef1;
+  @apply w-full flex grow;
+}
+
+.topHeaderBar {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.pageTitle h1 {
+  font-size: 1.4rem;
+  @apply font-normal ps-8;
+}
+
+.topInfo {
+  font-size: 1rem;
+  color: #565657;
+  padding-right: 1em;
+  @apply ms-auto;
+}

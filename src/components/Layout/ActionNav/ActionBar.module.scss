@@ -1,0 +1,11 @@
+.actionBar {
+  border-bottom: 1px solid #eeeef1;
+  .customButton {
+    padding: 4px;
+    &.active {
+      background: #f6f6f8 !important;
+    }
+    &:hover {
+    }
+  }
+}
