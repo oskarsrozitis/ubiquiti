@@ -6,6 +6,24 @@ This project is a web application built with React (TSdx zero config cli), Tailw
 
 Ensure you have Node.js (version 18.x or later) and npm installed on your machine to run this project. For build you might need Live Server for VS Code to run this app.
 
+## Running with Docker
+
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/oskarsrozitis/ubiquiti
+   
+2. Build the Docker image:
+   ```bash
+   docker build -t ubiquiti-app-dev .
+
+3. Run the Docker container:
+   ```bash
+   docker run -p 5173:5173 -v ${PWD}:/app -e NODE_ENV=development ubiquiti-app-dev
+
+4. Open your browser to:
+   ```bash
+   http://localhost:5173/
+
 ## Installation and running for development
 
 1. Clone the repository to your local machine:
