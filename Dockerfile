@@ -18,7 +18,7 @@ RUN ls -R
 RUN yarn build
 
 # Expose the application port
-EXPOSE 3000
+EXPOSE 5173
 
 # Command to run the application
-CMD ["yarn", "start"]
+CMD ["yarn", "dev"]
